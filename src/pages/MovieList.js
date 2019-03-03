@@ -25,14 +25,14 @@ class MovieList extends Component {
   render() {
     return (
       <>
-        <header>
+        <header className="now-showing-banner">
           <h1>Now Showing</h1>
         </header>
         <section className="highlighted-movie">
           <h2>Featuring: </h2>
           <p>Highlighted Movie</p>
         </section>
-        <ul>
+        <ul className="movies-showing">
           {this.state.movies.map((movie, index) => {
             return <li key={index}>{movie.title}</li>
           })}
