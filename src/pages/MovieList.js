@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MovieInfo from '../pages/MovieInfo'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 class MovieList extends Component {
   state = {
@@ -41,7 +42,11 @@ class MovieList extends Component {
         </section>
         <ul className="movies-showing">
           {this.state.movies.map((movie, index) => {
-            return <li key={index}>{movie.title}</li>
+            return (
+              <Link key={index} to={'/Movie/' + this.state.movies[index].title}>
+                <li>{movie.title}</li>
+              </Link>
+            )
           })}
         </ul>
       </>
