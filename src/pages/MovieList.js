@@ -29,13 +29,13 @@ class MovieList extends Component {
           <h1>Now Showing</h1>
         </header>
         <section className="highlighted-movie">
-          <h2>Featuring</h2>
+          <h2>Featuring: </h2>
           <p>Highlighted Movie</p>
         </section>
         <ul>
-          <li>Title</li>
-          <li>Title</li>
-          <li>Title</li>
+          {this.state.movies.map((movie, index) => {
+            return <li key={index}>{movie.title}</li>
+          })}
         </ul>
       </>
     )
