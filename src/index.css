@@ -10,3 +10,19 @@ body {
   margin: 0;
   min-height: 100%;
 }
+
+.now-showing-banner {
+  display: flex;
+  justify-content: center;
+}
+
+.highlighted-movie {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.movies-showing {
+  list-style: none;
+}
