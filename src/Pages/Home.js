@@ -33,7 +33,7 @@ class Home extends Component {
                   return (
                     <figure key={i}>
                       <h2>{this.state.results[i].title}</h2>
-                      <img>?</img>
+                      <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
                       <figcaption>{this.state.results[i].overview}</figcaption>
                       <h3>{this.state.results[i].release_date}</h3>
                     </figure>
