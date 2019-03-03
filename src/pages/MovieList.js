@@ -30,7 +30,14 @@ class MovieList extends Component {
         </header>
         <section className="highlighted-movie">
           <h2>Featuring: </h2>
-          <p>Highlighted Movie</p>
+          <p>
+            {/* {
+              this.state.movies[
+                Math.floor(Math.random() * this.state.movies.length)
+              ].title
+            } */}
+            featured movie
+          </p>
         </section>
         <ul className="movies-showing">
           {this.state.movies.map((movie, index) => {
