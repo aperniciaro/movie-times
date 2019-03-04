@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import CastList from '../components/CastList'
 import MovieDetails from '../components/MovieDetails'
+import Breadcrumb from '../components/Breadcrumb'
 
 class MovieInfo extends Component {
   state = {
@@ -56,6 +57,7 @@ class MovieInfo extends Component {
   render() {
     return (
       <div>
+        <Breadcrumb />
         <MovieDetails
           title={this.state.title}
           releaseDate={this.state.releaseDate}
