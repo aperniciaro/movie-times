@@ -43,7 +43,7 @@ class MovieList extends Component {
         <ul className="movies-showing">
           {this.state.movies.map((movie, index) => {
             return (
-              <Link key={index} to={'/Movie/' + this.state.movies[index].title}>
+              <Link key={index} to={'/Movie/' + this.state.movies[index].id}>
                 <li>{movie.title}</li>
               </Link>
             )
