@@ -9,14 +9,15 @@ class MovieInfo extends Component {
     description: '',
     releaseDate: '',
     poster: '',
-    id: ''
+    id: '',
+    cast: []
   }
 
   componentDidMount() {
     axios
       .get(
         `https://api.themoviedb.org/3/movie${
-          this.props.match.params.movieInfo
+          this.props.match.params.movieID
         }&api_key=${this.state.apiKey}&append_to_response=images`
       )
 
@@ -34,12 +35,12 @@ class MovieInfo extends Component {
     this.getCast()
   }
 
-  getCast = () =>
+  getCast = () => {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${
-          this.props.match.params.movie
-        }/credits?api_key=8d06228140322691066ef39ba52dfbb46`
+          this.props.match.params.movieID
+        }/credits?api_key=${this.state.apiKey}`
       )
       .then(resp => {
         console.log({ resp })
@@ -49,6 +50,7 @@ class MovieInfo extends Component {
         })
         console.log(this.state.cast[1].name)
       })
+  }
 
   render() {
     return (
