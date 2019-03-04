@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom'
 class MovieList extends Component {
   state = {
     apiKey: '8d06228140322691066ef39ba52dfbb4',
-    movies: []
+    movies: [],
+    featuredMovie: {}
   }
 
   componentDidMount() {
@@ -16,7 +17,12 @@ class MovieList extends Component {
           '&language=en-US&page=1'
       )
       .then(resp => {
+        const featuredMovie =
+          resp.data.results[
+            Math.floor(Math.random() * resp.data.results.length)
+          ]
         this.setState({
+          featuredMovie,
           movies: resp.data.results
         })
       })
@@ -30,14 +36,7 @@ class MovieList extends Component {
         </header>
         <section className="highlighted-movie">
           <h2>Featuring: </h2>
-          <p>
-            {/* {
-              this.state.movies[
-                Math.floor(Math.random() * this.state.movies.length)
-              ].title
-            } */}
-            featured movie
-          </p>
+          <p>{this.state.featuredMovie.title}</p>
         </section>
         <ul className="movies-showing">
           {this.state.movies.map((movie, index) => {
