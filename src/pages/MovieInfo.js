@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import CastList from '../components/CastList'
+import MovieDetails from '../components/MovieDetails'
+
 class MovieInfo extends Component {
   state = {
     apiKey: '8d06228140322691066ef39ba52dfbb4',
@@ -9,9 +12,16 @@ class MovieInfo extends Component {
     releaseDate: '',
     poster: '',
     id: '',
+    genre: '',
     cast: []
   }
+
   componentDidMount() {
+    this.getMovieInfo()
+    this.getCast()
+  }
+
+  getMovieInfo = () => {
     axios
       .get(
         `https://api.themoviedb.org/3/movie/${
@@ -24,12 +34,13 @@ class MovieInfo extends Component {
           title: resp.data.original_title,
           description: resp.data.overview,
           releaseDate: resp.data.release_date,
+          genre: resp.data.genre,
           poster: resp.data.poster_path
         })
         console.log(this.state)
       })
-    this.getCast()
   }
+
   getCast = () => {
     axios
       .get(
@@ -47,22 +58,14 @@ class MovieInfo extends Component {
   render() {
     return (
       <div>
-        <figure>
-          <h4>{this.state.title}</h4>
-          <h5>{this.state.releaseDate}</h5>
-          <h3>{this.state.genre}</h3>
-          <img
-            className="movie-poster"
-            src={`https://image.tmdb.org/t/p/original${this.state.poster}`}
-            alt=""
-          />
-          <figcaption>{this.props.description}</figcaption>
-        </figure>
-        <ul>
-          {this.state.cast.map((cast, i) => {
-            return <li key={i}>{this.state.cast[i].name}</li>
-          })}
-        </ul>
+        <MovieDetails
+          title={this.state.title}
+          releaseDate={this.state.releaseDate}
+          genre={this.state.genre}
+          description={this.state.description}
+          poster={this.state.poster}
+        />
+        <CastList cast={this.state.cast} />
       </div>
     )
   }

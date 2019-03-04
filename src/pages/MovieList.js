@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import Header from '../components/Header'
+import Featured from '../components/Featured'
+import ListOfMovies from '../components/ListOfMovies'
 
 class MovieList extends Component {
   state = {
@@ -10,6 +12,10 @@ class MovieList extends Component {
   }
 
   componentDidMount() {
+    this.getMoviesFromApi()
+  }
+
+  getMoviesFromApi = () => {
     axios
       .get(
         'https://api.themoviedb.org/3/movie/now_playing?api_key=' +
@@ -31,22 +37,9 @@ class MovieList extends Component {
   render() {
     return (
       <>
-        <header className="now-showing-banner">
-          <h1>Now Showing</h1>
-        </header>
-        <section className="highlighted-movie">
-          <h2>Featuring: </h2>
-          <p>{this.state.featuredMovie.title}</p>
-        </section>
-        <ul className="movies-showing">
-          {this.state.movies.map((movie, index) => {
-            return (
-              <Link key={index} to={'/Movie/' + this.state.movies[index].id}>
-                <li>{movie.title}</li>
-              </Link>
-            )
-          })}
-        </ul>
+        <Header />
+        <Featured featuredMovie={this.state.featuredMovie} />
+        <ListOfMovies movies={this.state.movies} />
       </>
     )
   }
