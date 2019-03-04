@@ -5,7 +5,7 @@ class Error extends Component {
   render() {
     return (
       <>
-        <h1>Error, page not found</h1>
+        <h6>Error, page not found</h6>
         <Link to="/">Return to Now Showing</Link>
       </>
     )
