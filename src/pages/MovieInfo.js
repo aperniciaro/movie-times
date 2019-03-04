@@ -12,7 +12,6 @@ class MovieInfo extends Component {
     releaseDate: '',
     poster: '',
     id: '',
-    genre: '',
     cast: []
   }
 
@@ -34,7 +33,6 @@ class MovieInfo extends Component {
           title: resp.data.original_title,
           description: resp.data.overview,
           releaseDate: resp.data.release_date,
-          genre: resp.data.genre,
           poster: resp.data.poster_path
         })
         console.log(this.state)
@@ -61,7 +59,6 @@ class MovieInfo extends Component {
         <MovieDetails
           title={this.state.title}
           releaseDate={this.state.releaseDate}
-          genre={this.state.genre}
           description={this.state.description}
           poster={this.state.poster}
         />

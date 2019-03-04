@@ -6,7 +6,6 @@ class MovieDetails extends Component {
       <figure>
         <h4>{this.props.title}</h4>
         <h5>{this.props.releaseDate}</h5>
-        <h3>{this.props.genre}</h3>
         <img
           className="movie-poster"
           src={`https://image.tmdb.org/t/p/original${this.props.poster}`}
