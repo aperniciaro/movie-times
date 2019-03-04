@@ -70,3 +70,7 @@ h5 {
   list-style: none;
   text-align: center;
 }
+
+h6 {
+  font-size: 2rem;
+}
