@@ -48,8 +48,8 @@ class MovieInfo extends Component {
     return (
       <div>
         <figure>
-          <h1>{this.state.title}</h1>
-          <h1>{this.state.releaseDate}</h1>
+          <h4>{this.state.title}</h4>
+          <h5>{this.state.releaseDate}</h5>
           <h3>{this.state.genre}</h3>
           <img
             className="movie-poster"
