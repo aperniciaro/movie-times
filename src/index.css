@@ -28,11 +28,33 @@ h1 {
   white-space: pre;
 }
 
+h4 {
+  text-align: center;
+  color: #463649;
+}
+h5 {
+  text-align: center;
+  color: #463649;
+}
+
 .now-showing-banner {
   display: flex;
   justify-content: center;
   background-image: url('https://berkeleylibrarysc.org/wp-content/uploads/2017/08/movie-film-video-production-ss-1920-800x450.jpg');
   background-size: cover;
+}
+
+.cast-list {
+}
+
+.movie-poster {
+  margin: auto;
+  width: 50%;
+  border: 4px solid rgb(24, 24, 24);
+  padding: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlighted-movie {
@@ -43,5 +65,8 @@ h1 {
 }
 
 .movies-showing {
+  margin: 0;
+  padding: 0;
   list-style: none;
+  text-align: center;
 }
