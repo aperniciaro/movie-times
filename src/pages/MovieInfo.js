@@ -15,15 +15,16 @@ class MovieInfo extends Component {
   }
 
   componentDidMount() {
-    const APIkey = Object.keys(this.state.id)
-    console.log(APIkey)
+    const apiKey = Object.keys(this.state.id)
+    console.log(apiKey)
     axios
       .get(
-        'https://api.themoviedb.org/3/movie${
-          this.props.match.params.movieInfo
-     ?api_key=8d06228140322691066ef39ba52dfbb4&append_to_response=images`
+      `https://api.themoviedb.org/3/movie${
+         this.props.match.params.movieInfo
+       }&api_key=${
+         this.state.apiKey
+       }&append_to_response=images`
     })
-
       
 
     .then(resp => {
@@ -76,6 +77,5 @@ render() {
       </ul>
     </>
   )
-}
 }
 export default MovieInfo

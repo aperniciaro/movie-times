@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import MovieList from './components/pages/MovieList'
-import MovieInfo from './components/pages/MovieInfo'
+
+import MovieList from './pages/MovieList'
+import MovieInfo from './pages/MovieInfo'
+import Error from './pages/Error'
 
 class App extends Component {
   render() {
@@ -10,7 +12,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path="/" component={MovieList} />
-            <Route exact path="Movie/:movieID" component={MovieInfo} />
+            <Route exact path="/Movie/:movieID" component={MovieInfo} />
+            <Route component={Error} />
           </Switch>
         </Router>
       </>
