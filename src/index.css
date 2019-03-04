@@ -1,5 +1,6 @@
 :root {
   font: 16px / 1 sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 html {
@@ -9,11 +10,29 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  background-color: rgb(228, 197, 197);
+}
+
+header {
+  background-color: rgb(31, 36, 37);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+h1 {
+  color: rgb(228, 197, 197);
+  padding: 0.5rem;
+  font-size: 3rem;
+  white-space: pre;
 }
 
 .now-showing-banner {
   display: flex;
   justify-content: center;
+  background-image: url('https://berkeleylibrarysc.org/wp-content/uploads/2017/08/movie-film-video-production-ss-1920-800x450.jpg');
+  background-size: cover;
 }
 
 .highlighted-movie {
