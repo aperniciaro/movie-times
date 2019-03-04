@@ -52,6 +52,7 @@ class MovieInfo extends Component {
           <h1>{this.state.releaseDate}</h1>
           <h3>{this.state.genre}</h3>
           <img
+            className="movie-poster"
             src={`https://image.tmdb.org/t/p/original${this.state.poster}`}
             alt=""
           />
