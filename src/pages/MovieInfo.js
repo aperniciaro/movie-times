@@ -16,9 +16,9 @@ class MovieInfo extends Component {
   componentDidMount() {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie${
+        `https://api.themoviedb.org/3/movie/${
           this.props.match.params.movieID
-        }&api_key=${this.state.apiKey}&append_to_response=images`
+        }?api_key=${this.state.apiKey}&language=en-US`
       )
 
       .then(resp => {
@@ -43,31 +43,27 @@ class MovieInfo extends Component {
         }/credits?api_key=${this.state.apiKey}`
       )
       .then(resp => {
-        console.log({ resp })
-
         this.setState({
           cast: resp.data.cast
         })
-        console.log(this.state.cast[1].name)
       })
   }
 
   render() {
     return (
       <div>
-        {/* <figure> */}
-        <h1>{this.state.title}movie title</h1>
-        <h1>{this.state.releaseDate}release date</h1>
-        <h3>{this.state.genre}movie genre</h3>
-        <img
-          src={`//https:image.tmdb.org/t/p/original${this.state.poster}`}
-          alt=""
-        />
-        {/* <figcaption>{this.props.description}</figcaption>
-        </figure> */}
+        <figure>
+          <h1>{this.state.title}</h1>
+          <h1>{this.state.releaseDate}</h1>
+          <h3>{this.state.genre}</h3>
+          <img
+            src={`https://image.tmdb.org/t/p/original${this.state.poster}`}
+            alt=""
+          />
+          <figcaption>{this.props.description}</figcaption>
+        </figure>
         <ul>
           {this.state.cast.map((cast, i) => {
-            console.log(cast)
             return <li key={i}>{this.state.cast[i].name}</li>
           })}
         </ul>
